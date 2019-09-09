@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./layout/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import About from "./Components/About";
+import Home from "./Components/Home";
+import Footer from "./Components/Footer";
 
-//import Navbar from "./layout/Navbar";
-import Login1 from "./Components/Login1";
-//import Footer from "./Components/Footer";
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
-          <div>
-            <Switch>
-              <Login1 />
-            </Switch>
-          </div>
+          <Switch>
+            <Home />
+          </Switch>
         </Router>
       </div>
     );
