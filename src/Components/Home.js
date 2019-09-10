@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import Navbar from "../layout/Navbar";
+import RecentlyAdded from "../Components/RecentlyAdded";
+import Footer from "./Footer";
+import Newsletter from "./Newsletter";
 class Home extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Navbar />
-      </React.Fragment>
+        <RecentlyAdded />
+        <Newsletter />
+        <Footer />
+      </div>
     );
   }
 }

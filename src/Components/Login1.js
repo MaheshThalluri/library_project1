@@ -1,71 +1,128 @@
 import "./Login.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {Home} from "./Home";
-import "../../node_modules/fontawesome";
-// import App2 from "../App2";
-import { withRouter } from "../../node_modules/react-router";
-
+import { Home } from "./Home";
+import FormValidator from "./FormValidator";
 class Login1 extends Component {
-  state = {
+    constructor(){
+       super();
+  this.validator = new FormValidator([
+      {
+        field: 'email',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Email is required.'
+      },
+      {
+        field: 'email',
+        method: 'isEmail',
+        validWhen: true,
+        message: 'That is not a valid email.'
+      },
+      {
+        field: 'phone',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Pleave provide a phone number.'
+      },
+      {
+        field: 'phone',
+        method: 'matches',
+        args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/], // args is an optional array of arguements that will be passed to the validation method
+        validWhen: true,
+        message: 'That is not a valid phone number.'
+      },
+      {
+        field: 'password',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Password is required.'
+      },
+      {
+        field: 'password_confirmation',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Password confirmation is required.'
+      },
+      {
+        field: 'password_confirmation',
+        method: this.passwordMatch,   // notice that we are passing a custom function here
+        validWhen: true,
+        message: 'Password and password confirmation do not match.'
+      }
+    ]);
+    this.submitted = false;
+    this.state = {
     sign_in: "true",
-    signINemail: "",
-    signINpassword: "",
-    signUPusername: "",
-    signUPemail: "",
-    signUPpassword: "",
-    signUPnumber: "",
+    signIN:{
+        email: "",
+        password: ""
+    },
+    signUP:{
+        username: "",
+        email: "",
+        password: "",
+        collegeID:"",
+        validation: this.validator.valid()
+    },
     leftPanel: false,
     rightPanel: true,
-    validsignIN: true,
-    validsignUP: true
   };
+    }
+
+
   signINinputListener = e => {
     e.preventDefault();
-    if (e.target.id === "email") this.setState({ signINemail: e.target.value });
+    if (e.target.id === "email") this.setState({email: e.target.value });
     if (e.target.id === "password")
-      this.setState({ signINpassword: e.target.value });
+      this.setState({ password: e.target.value });
   };
   signUPinputListener = e => {
     e.preventDefault();
+    let signUP={...this.state.signUP};
     if (e.target.id === "username")
-      this.setState({ signUPusername: e.target.value });
-    if (e.target.id === "email") this.setState({ signUPemail: e.target.value });
+        signUP.username=e.target.value;
+    if (e.target.id === "email")
+        signUP.email=e.target.value;
     if (e.target.id === "password")
-      this.setState({ signUPpassword: e.target.value });
-    if (e.target.id === "number")
-      this.setState({ signUPnumber: e.target.value });
+      signUP.password=e.target.value;
+      if (e.target.id === "collgeID")
+      signUP.collegeID=e.target.value;
+      this.setState({ signUP });
   };
   signINsubmit = () => {
-    console.log(this.state);
-    // this.props.history.push("/home");
-  };
+  }
+
   signUPsubmit = () => {
-    /*number_re=/[6-9][0-9]{9}/;
-     email_re=/Y*/
-    console.log(this.state);
-    //this.props.history()
+    const validation = this.validator.validate(this.state);
+    this.setState({ validation });
+    this.submitted = true;
+
+
   };
   changePanel = () => {
     this.setState({ sign_in: !this.state.sign_in });
   };
   render() {
+      let validation = this.submitted ?
+                      this.validator.validate(this.state) :
+                      this.state.validation
     return (
-      <div>
+        <div  class="mt-5">
         {this.state.sign_in ? (
-          <div className="container" id="container">
+          <div class="container" id="container">
             <div className="form-container sign-up-container">
-              <form action="#" onSubmit={this.signINsubmit}>
+              <form action="/Home" onSubmit={this.signINsubmit}>
                 <h1>Create Account</h1>
                 <div className="social-container">
                   <Link to="/" className="social">
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f text-primary"></i>
                   </Link>
                   <Link to="/" className="social">
-                    <i className="fab fa-google-plus-g"></i>
+                    <i className="fab fa-google-plus-g text-danger"></i>
                   </Link>
                   <Link to="/" className="social">
-                    <i className="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in text-primary"></i>
                   </Link>
                 </div>
                 <span>or use your email for registration</span>
@@ -75,13 +132,13 @@ class Login1 extends Component {
                   onChange={this.signUPinputListener}
                 />
                 <input
-                  type="email"
-                  placeholder="College Email"
+                  type="text"
+                  placeholder="collegeID"
                   onChange={this.signUPinputListener}
                 />
                 <input
-                  type="number"
-                  placeholder="number"
+                  type="text"
+                  placeholder="Email"
                   onChange={this.signUPinputListener}
                 />
                 <input
@@ -113,19 +170,19 @@ class Login1 extends Component {
             </div>
           </div>
         ) : (
-          <div className="container" id="container">
+          <div class="container" id="container">
             <div className="form-container sign-in-container">
-              <form action="#" onSubmit={this.signUPsubmit}>
+              <form action="/Home" onSubmit={this.signUPsubmit}>
                 <h1>Sign in</h1>
                 <div className="social-container">
                   <Link to="/" className="social">
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f text-primary"></i>
                   </Link>
                   <Link to="/" className="social">
-                    <i className="fab fa-google-plus-g"></i>
+                    <i className="fab fa-google-plus-g text-danger"></i>
                   </Link>
                   <Link to="/" className="social">
-                    <i className="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in text-primary"></i>
                   </Link>
                 </div>
                 <span>or use your account</span>
@@ -160,11 +217,10 @@ class Login1 extends Component {
             </div>
           </div>
         )}
-
-        {/* <startPage /> */}
       </div>
     );
   }
 }
 
 export default Login1;
+
