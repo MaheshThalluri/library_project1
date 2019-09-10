@@ -19,7 +19,8 @@
     "react-slick": "^0.25.2",
     "react-validation": "^3.0.7",
     "reactstrap": "^8.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "validator": "^11.1.0"
   },
   "scripts": {
     "deploy": "npm run build && gh-pages -d build",

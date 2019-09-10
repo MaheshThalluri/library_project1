@@ -4,115 +4,100 @@ import { Link } from "react-router-dom";
 import { Home } from "./Home";
 import FormValidator from "./FormValidator";
 class Login1 extends Component {
-    constructor(){
-       super();
-  this.validator = new FormValidator([
+  constructor() {
+    super();
+    this.validator = new FormValidator([
       {
-        field: 'email',
-        method: 'isEmpty',
+        field: "email",
+        method: "isEmpty",
         validWhen: false,
-        message: 'Email is required.'
+        message: "Email is required."
       },
       {
-        field: 'email',
-        method: 'isEmail',
+        field: "email",
+        method: "isEmail",
         validWhen: true,
-        message: 'That is not a valid email.'
+        message: "That is not a valid email."
       },
+
       {
-        field: 'phone',
-        method: 'isEmpty',
+        field: "password",
+        method: "isEmpty",
         validWhen: false,
-        message: 'Pleave provide a phone number.'
+        message: "Password is required."
       },
       {
-        field: 'phone',
-        method: 'matches',
-        args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/], // args is an optional array of arguements that will be passed to the validation method
-        validWhen: true,
-        message: 'That is not a valid phone number.'
-      },
-      {
-        field: 'password',
-        method: 'isEmpty',
+        field: "collegeID",
+        method: "isEmpty",
         validWhen: false,
-        message: 'Password is required.'
-      },
-      {
-        field: 'password_confirmation',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Password confirmation is required.'
-      },
-      {
-        field: 'password_confirmation',
-        method: this.passwordMatch,   // notice that we are passing a custom function here
-        validWhen: true,
-        message: 'Password and password confirmation do not match.'
+        message: "collegeID is required."
       }
     ]);
+    // this.validaton = {};
     this.submitted = false;
     this.state = {
-    sign_in: "true",
-    signIN:{
+      sign_in: "true",
+      signIN: {
         email: "",
         password: ""
-    },
-    signUP:{
-        username: "",
+      },
+      signUP: {
+        //username: "",
         email: "",
         password: "",
-        collegeID:"",
-        validation: this.validator.valid()
-    },
-    leftPanel: false,
-    rightPanel: true,
-  };
-    }
-
+        collegeID: ""
+      },
+      leftPanel: false,
+      rightPanel: true,
+      validation: this.validator.valid()
+    };
+  }
 
   signINinputListener = e => {
     e.preventDefault();
-    if (e.target.id === "email") this.setState({email: e.target.value });
-    if (e.target.id === "password")
-      this.setState({ password: e.target.value });
+    if (e.target.id === "email") this.setState({ email: e.target.value });
+    if (e.target.id === "password") this.setState({ password: e.target.value });
   };
   signUPinputListener = e => {
     e.preventDefault();
-    let signUP={...this.state.signUP};
-    if (e.target.id === "username")
-        signUP.username=e.target.value;
-    if (e.target.id === "email")
-        signUP.email=e.target.value;
-    if (e.target.id === "password")
-      signUP.password=e.target.value;
-      if (e.target.id === "collgeID")
-      signUP.collegeID=e.target.value;
-      this.setState({ signUP });
+    let signUP = { ...this.state.signUP };
+    if (e.target.id === "username") signUP.username = e.target.value;
+    if (e.target.id === "email") signUP.email = e.target.value;
+    if (e.target.id === "password") signUP.password = e.target.value;
+    if (e.target.id === "collgeID") signUP.collegeID = e.target.value;
+    this.setState({ signUP });
+    // console.log("cahsdf");
   };
-  signINsubmit = () => {
-  }
+  signINsubmit = e => {
+    e.preventDefault();
+  };
 
-  signUPsubmit = () => {
-    const validation = this.validator.validate(this.state);
-    this.setState({ validation });
+  signUPsubmit = e => {
+    e.preventDefault();
+    // console.log(this.state.signUP);
+    const { signUP } = { ...this.state };
+    // const { validation } = { ...this.signUP };
+    let validation = this.validator.validate(signUP);
+    console.log(validation);
+    // console.log(this.state.validation);
+    this.setState({ validation: validation });
     this.submitted = true;
-
-
   };
   changePanel = () => {
     this.setState({ sign_in: !this.state.sign_in });
+    console.log("adf");
   };
   render() {
-      let validation = this.submitted ?
-                      this.validator.validate(this.state) :
-                      this.state.validation
+    const { signUP } = { ...this.state };
+    let validation = this.submitted
+      ? this.validator.validate(signUP)
+      : this.state.validation;
     return (
-        <div  class="mt-5">
+      <div class="mt-5">
         {this.state.sign_in ? (
           <div class="container" id="container">
             <div className="form-container sign-up-container">
-              <form action="/Home" onSubmit={this.signINsubmit}>
+              <form action="#">
                 <h1>Create Account</h1>
                 <div className="social-container">
                   <Link to="/" className="social">
@@ -126,27 +111,47 @@ class Login1 extends Component {
                   </Link>
                 </div>
                 <span>or use your email for registration</span>
-                <input
+                {/* <input
                   type="text"
                   placeholder="Name"
                   onChange={this.signUPinputListener}
-                />
+                /> */}
+                <div
+                  className={
+                    this.state.validation.email.isInvalid && "has-error"
+                  }
+                >
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="john@doe.com"
+                    onChange={this.signUPinputListener}
+                  />
+                  <span className="help-block">
+                    {this.state.validation.email.message}
+                  </span>
+                </div>
                 <input
                   type="text"
                   placeholder="collegeID"
                   onChange={this.signUPinputListener}
                 />
-                <input
+                {/* <input
                   type="text"
                   placeholder="Email"
-                  onChange={this.signUPinputListener}
-                />
+                  className={
+                    this.state.validation.email.isInvalid && "has-error"
+                  }
+                /> */}
                 <input
                   type="password"
                   placeholder="Password"
                   onChange={this.signUPinputListener}
+                  className={
+                    this.state.validation.password.isInvalid && "has-error"
+                  }
                 />
-                <button>Sign Up</button>
+                <button onClick={this.signUPsubmit}>Sign Up</button>
               </form>
             </div>
 
@@ -223,4 +228,3 @@ class Login1 extends Component {
 }
 
 export default Login1;
-
