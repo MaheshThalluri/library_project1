@@ -1,27 +1,58 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import Profilecard from "./Cards/Profilecard";
 
 class Profile extends Component {
   render() {
-    const { Ename, Designation, Phone, Email } = this.props;
     return (
-      <div className="card">
-        <div className="card-img"></div>
-        <img
-          src="https://wallpapershome.com/images/wallpapers/tiger-2560x1440-muzzle-grin-amur-portrait-934.jpg"
-          alt="error"
-          className="profile-img"
-        />
-        <h1>{Ename}</h1>
-        <div className="details">
-          <ul>
-            <li>{Designation}</li>
-            <li>{Email}</li>
-            <li>{Phone}</li>
-          </ul>
+      <div>
+        <h1 className="text-center  mt-5">Meet the Person</h1>
+        <div className="d-flex justify-content-around row-hl mt-0">
+          <div className="p-4 item-hl">
+            <Profilecard
+              Ename={"Ramesh"}
+              Designation={"Manager"}
+              Phone={"7680008733"}
+              Email={"Ramesh@gmail.com"}
+            />
+          </div>
+
+          <div className="p-4 item-hl">
+            <Profilecard
+              Ename={"Suresh"}
+              Designation={"Professor"}
+              Phone={"9248652445"}
+              Email={"Suresh@gmail.com"}
+            />
+          </div>
+
+          <div className="p-4 item-hl">
+            <Profilecard
+              Ename={"Ganesh"}
+              Designation={"Lecturer"}
+              Phone={"9014004556"}
+              Email={"Ganesh@gmail.com"}
+            />
+          </div>
         </div>
       </div>
     );
   }
 }
 export default Profile;
+
+// <div className="card">
+//         <div className="card-img"></div>
+//         <img
+//           src="https://wallpapershome.com/images/wallpapers/tiger-2560x1440-muzzle-grin-amur-portrait-934.jpg"
+//           alt="error"
+//           className="profile-img"
+//         />
+//         <h1>{Ename}</h1>
+//         <div className="details">
+//           <ul>
+//             <li>{Designation}</li>
+//             <li>{Email}</li>
+//             <li>{Phone}</li>
+//           </ul>
+//         </div>
+//       </div>

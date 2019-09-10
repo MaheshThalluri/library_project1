@@ -14,7 +14,8 @@ class Footer extends Component {
           <div class="col text-white">
             <i className="fab fa-facebook fa-2x mr-3 text-primary"></i>
             <i className="fab fa-instagram fa-2x mr-3 text-warning"></i>
-            <i className="fab fa-twitter fa-2x text-primary"></i>
+            <i className="fab fa-twitter fa-2x text-primary mr-3"></i>
+            <i className="fab fa-linkedin fa-2x text-primary"></i>
           </div>
         </div>
       </div>
