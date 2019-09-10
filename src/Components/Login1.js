@@ -1,6 +1,7 @@
 import "./Login.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {Home} from "./Home";
 import "../../node_modules/fontawesome";
 class Login1 extends Component{
     state={
@@ -35,11 +36,11 @@ class Login1 extends Component{
         }
     render(){
         return(
-    <div>        
+    <div className="login">
         {this.state.sign_in?
         <div class="container" id="container">
             <div className="form-container sign-up-container">
-                <form action="#" onSubmit={this.signINsubmit}>
+                <form action="/Home" onSubmit={this.signINsubmit}>
                     <h1>Create Account</h1>
                     <div className="social-container">
                         <Link to="/" className="social"><i className="fab fa-facebook-f"></i></Link>
@@ -53,7 +54,7 @@ class Login1 extends Component{
                     <button >Sign Up</button>
                 </form>
             </div>
-        
+
             <div className="overlay-container">
                 <div className="overlay">
                     <div className="overlay-panel overlay-right">
@@ -62,12 +63,12 @@ class Login1 extends Component{
                         <button className="ghost" id="signIn" onClick={this.changePanel}>Sign In</button>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
         :
         <div class="container" id="container">
             <div className="form-container sign-in-container">
-                <form action="#" onSubmit={this.signUPsubmit}>
+                <form action="/App1" onSubmit={this.signUPsubmit}>
                     <h1>Sign in</h1>
                     <div className="social-container">
                         <Link to="/" className="social"><i className="fab fa-facebook-f"></i></Link>
@@ -78,7 +79,9 @@ class Login1 extends Component{
                     <input type="text" placeholder="Email"  onChange={this.signINinputListener}/>
                     <input type="password" placeholder="Password" onChange={this.signINinputListener}/>
                     <Link to="/">Forgot your password?</Link>
+                    <Link to="/Home">
                     <button>Sign In</button>
+                    </Link>
                 </form>
             </div>
             <div className="overlay-container">
@@ -91,8 +94,9 @@ class Login1 extends Component{
                 </div>
             </div>
         </div>
+
         }
-    </div>        
+    </div>
         );
     }
 }
