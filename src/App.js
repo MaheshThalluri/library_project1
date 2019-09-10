@@ -4,7 +4,6 @@ import Navbar from "./layout/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./Components/About";
 import Home from "./Components/Home";
-import Footer from "./Components/Footer";
 
 class App extends Component {
   render() {
