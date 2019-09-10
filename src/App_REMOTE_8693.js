@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import About from "./Components/About";
-import Navbar from "./layout/Navbar";
+
 import Login1 from "./Components/Login1";
 import Home from "./Components/Home";
+import About from "./Components/About";
 import Userprofile from "./Components/Userprofile";
-import CSE from "./Components/Departments/CSE";
+
 class App extends Component {
   render() {
     return (
