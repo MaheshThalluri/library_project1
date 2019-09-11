@@ -53,13 +53,13 @@ const Navbar = props => {
                 <a className="dropdown-item " href="/departments/cse">
                   CSE
                 </a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/departments/ece">
                   ECE
                 </a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/departments/it">
                   IT
                 </a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/departments/eee">
                   EEE
                 </a>
               </div>
@@ -80,7 +80,7 @@ const Navbar = props => {
                 <a className="dropdown-item" href="/userprofile">
                   <i class="fas fa-user-circle"></i> Profile
                 </a>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="Logout">
                   <i class="fas fa-user-times"> Log out</i>
                 </a>
               </div>

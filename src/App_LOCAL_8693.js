@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cse from "./Components/Departments/Cse";
+import About from "./Components/About";
+
+import Navbar from "./layout/Navbar";
 import Login1 from "./Components/Login1";
 import Home from "./Components/Home";
-import About from "./Components/About";
-import Userprofile from "./Components/Userprofile";
+import CSE from "./Components/Departments/CSE";
+// import Nav
+//import Footer from "./Components/Footer";
 class App extends Component {
   render() {
     return (
@@ -13,10 +16,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Login1} />
-            <Route exact path="/Home" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/userprofile" component={Userprofile} />
-            <Route exact path="/departments/cse" component={Cse} />
+             <Route exact path="/Home" component={Home} />
+             <Route exact path="/CSE" component={CSE} />
           </Switch>
         </Router>
       </div>
