@@ -7,10 +7,10 @@ const Navbar = props => {
   return (
     <React.Fragment>
       <nav
-        className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top py-0 "
+        className="navbar navbar-expand-sm navbar-dark bg-dark py-0 "
         style={{ "border-bottom": "#008ed6 3px solid" }}
       >
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand ml-5" href="#">
           Navbar
         </a>
         <button
@@ -28,7 +28,7 @@ const Navbar = props => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto text-success">
             <li className="nav-item active">
-              <a className="nav-link" href="/home">
+              <a className="nav-link" href="/">
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
@@ -40,7 +40,7 @@ const Navbar = props => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="/departments"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -50,16 +50,16 @@ const Navbar = props => {
                 Departments
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item " href="/CSE">
+                <a className="dropdown-item " href="/departments/cse">
                   CSE
                 </a>
-                <a className="dropdown-item" href="/ECE">
+                <a className="dropdown-item" href="/departments/ece">
                   ECE
                 </a>
-                <a className="dropdown-item" href="/IT">
+                <a className="dropdown-item" href="/departments/it">
                   IT
                 </a>
-                <a className="dropdown-item" href="/EEE">
+                <a className="dropdown-item" href="/departments/eee">
                   EEE
                 </a>
               </div>
