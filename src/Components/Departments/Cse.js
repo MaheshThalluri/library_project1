@@ -4,12 +4,29 @@ import Navbar from "../../layout/Navbar";
 import Footer from "../Footer";
 import { Consumer } from "../../Components/context";
 class Cse extends Component {
+  state = {
+    searchBook: ""
+  };
+  inputListener = e => {
+    this.setState({ searchBook: e.target.value });
+  };
+  onSearch = (Books, e) => {
+    e.preventDefault();
+    let searchIDs = Books.filter(element => {
+      console.log(element);
+      for (let key in element.key) {
+        if (key === this.state.searchBook) {
+          return element.bookID;
+        }
+      }
+    });
+    console.log(searchIDs);
+  };
   render() {
     return (
       <Consumer>
         {value => {
-          const { RecentlyAdded } = { ...value };
-          console.log(value);
+          const { RecentlyAdded, Books, MostPopular } = { ...value };
           return (
             <div className="">
               <div class="pt-5 ">
@@ -18,8 +35,14 @@ class Cse extends Component {
                     type="text"
                     class="form-control form-control-lg mr-2"
                     placeholder=" Book Name"
+                    onChange={this.inpuListener}
                   />
-                  <button class="btn btn-lg btn-success">Search</button>
+                  <button
+                    class="btn btn-lg btn-success"
+                    onClick={this.onSearch.bind(this, Books)}
+                  >
+                    Search
+                  </button>
                 </form>
               </div>
               <div className="row mt-5">
@@ -30,9 +53,23 @@ class Cse extends Component {
                   <div class="d-flex justify-content-around row-hl">
                     {RecentlyAdded.map(element => (
                       <div class=" ml-5 px-4 item-hl">
-                        <Deptcards />
+                        <Deptcards books={Books} book={element} />
                       </div>
                     ))}
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div class="col-12">
+                    <h1 class="ml-5 mb-5 text-center">Most Popular</h1>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-flex justify-content-around row-hl">
+                      {RecentlyAdded.map(element => (
+                        <div class=" ml-5 px-4 item-hl">
+                          <Deptcards books={Books} book={element} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -49,24 +86,6 @@ class Cse extends Component {
       //   {value => {
       //     return (
       //
-      //         <div className="row mt-5">
-      //           <div class="col-12">
-      //             <h1 class="ml-5 mb-5 text-center">Most Popular</h1>
-      //           </div>
-      //           <div class="col-12">
-      //             <div class="d-flex justify-content-around row-hl">
-      //               <div class=" ml-5 px-4 item-hl">
-      //                 <Deptcards />
-      //               </div>
-      //               <div class="px-4 item-hl">
-      //                 <Deptcards />
-      //               </div>
-      //               <div class="px-4 item-hl">
-      //                 <Deptcards />
-      //               </div>
-      //             </div>
-      //           </div>
-      //         </div>
 
       //         <div class=" text-center bg-success text-white mt-5">
       //           <h1 class="text-center">Our Staff</h1>

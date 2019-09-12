@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
+import PropTypes from "prop-types";
 class Deptcards extends Component {
   render() {
-    // .. return
+    const { books, book } = { ...this.props };
+    let BOOK = books.filter(element => element.bookID === book);
+    const { bookName, Author, Edition, Availability, Rating } = {
+      ...BOOK
+    };
     return (
       <Flippy
         flipOnHover={true} // default false
@@ -29,6 +34,7 @@ class Deptcards extends Component {
           {/* put the Backside content here */}
           <div class="contents">
             <ul style={{ liststyle: "none" }}>
+              <li>bookName</li>
               <li>Author</li>
               <li>Edition</li>
               <li>rating</li>
