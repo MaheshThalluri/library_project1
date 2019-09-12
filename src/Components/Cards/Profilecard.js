@@ -10,11 +10,7 @@ class Profilecard extends Component {
         {/* <div class="heading">MEET THE TEAM</div> */}
         <div class="card">
           <div class="card-img"></div>
-          <img
-            src=""
-            alt="error"
-            class="profile-img"
-          />
+          <img src="" alt="error" class="profile-img" />
           <h1>{Ename}</h1>
           <div class="details">
             <ul>

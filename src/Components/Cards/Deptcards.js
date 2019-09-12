@@ -1,21 +1,42 @@
 import React, { Component } from "react";
-
+import Flippy, { FrontSide, BackSide } from "react-flippy";
 class Deptcards extends Component {
   render() {
+    // .. return
     return (
-      <div class="card bg-primary text-white">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
-          </p>
-          <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </p>
-        </div>
-      </div>
+      <Flippy
+        flipOnHover={true} // default false
+        flipOnClick={false} // default false
+        flipDirection="horizontal" // horizontal or vertical
+        ref={r => (this.flippy = r)} // to use toggle method like this.flippy.toggle()
+        // if you pass isFlipped prop component will be controlled component.
+        // and other props, which will go to div
+        style={{ width: "280px", height: "380px" }} /// these are optional style, it is not necessary
+      >
+        <FrontSide
+          style={{
+            backgroundColor: "tomato"
+          }}
+        >
+          <img src="../../Images/person1.jpg" alt="Hello" />
+        </FrontSide>
+        <BackSide style={{ backgroundColor: "#175852" }}>
+          {/* put the Backside content here */}
+          <div class="contents">
+            <ul>
+              <li>Author</li>
+              <li>Edition</li>
+              <li>rating</li>
+              <li>Availability</li>
+              <li>
+                <button type="button" class="btn btn-primary text-center">
+                  Click
+                </button>
+              </li>
+            </ul>
+          </div>
+        </BackSide>
+      </Flippy>
     );
   }
 }
