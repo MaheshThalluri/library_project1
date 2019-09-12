@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Bookcard from "../Components/Cards/Bookcard";
+import Deptcard from "../Components/Cards/Deptcards";
 class RecentlyAdded extends Component {
   render() {
     return (
@@ -7,7 +7,13 @@ class RecentlyAdded extends Component {
         <h1 className="display-4 text-center py-3 mt-5">Recently Added</h1>
         <div class="d-flex justify-content-around row-hl">
           <div class="p-4 item-hl">
-            <Bookcard />
+            <Deptcard />
+          </div>
+          <div class="p-4 item-hl">
+            <Deptcard />
+          </div>
+          <div class="p-4 item-hl">
+            <Deptcard />
           </div>
         </div>
       </div>

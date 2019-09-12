@@ -11,6 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.dropdown-menu a:hover{
-background-color:grey;
+.dropdown-menu a:hover {
+  background-color: grey;
+}
+
+.contents li {
+  text-align: center;
+  font-size: 1.3rem;
+  border-bottom: 1px solid lightblue;
+  padding: 1rem;
+  margin-right: 2.5rem;
 }

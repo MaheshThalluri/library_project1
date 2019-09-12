@@ -28,7 +28,7 @@ class Deptcards extends Component {
         <BackSide style={{ backgroundColor: "#90EE90" }}>
           {/* put the Backside content here */}
           <div class="contents">
-            <ul style={{ liststyle: "none" }}>
+            <ul class="list-unstyled">
               <li>Author</li>
               <li>Edition</li>
               <li>rating</li>
