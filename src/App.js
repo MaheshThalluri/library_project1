@@ -7,19 +7,22 @@ import Login1 from "./Components/Login1";
 import Home from "./Components/Home";
 import Userprofile from "./Components/Userprofile";
 import CSE from "./Components/Departments/CSE";
+import Provider from "./Components/context";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Provider>
         <Router>
-          <Switch>
-            <Route exact path="/" component={Login1} />
-            <Route exact path="/Home" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/userprofile" component={Userprofile} />
-          </Switch>
+          <div className="App">
+            <Switch>
+              <Route exact path="/" component={Login1} />
+              <Route exact path="/Home" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/userprofile" component={Userprofile} />
+            </Switch>
+          </div>
         </Router>
-      </div>
+      </Provider>
     );
   }
 }

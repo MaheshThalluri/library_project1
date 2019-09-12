@@ -103,7 +103,7 @@ input {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 550px;
 }
 
 .form-container {
@@ -203,7 +203,7 @@ input {
 }
 
 .overlay-left {
-  left:0;
+  left: 0;
   transform: translateX(-20%);
 }
 
