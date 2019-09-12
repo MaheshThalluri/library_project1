@@ -15,15 +15,20 @@ class Deptcards extends Component {
       >
         <FrontSide
           style={{
-            backgroundColor: "tomato"
+            backgroundColor: "pink"
           }}
         >
-          <img src="../../Images/person1.jpg" alt="Hello" />
+          <img
+            src="http://4.bp.blogspot.com/-r8Z9p2zh5Ko/TnMdtnrt0ZI/AAAAAAAABAk/63aKALxaB38/s1600/Revolution-2020-Chetan-Bhagat-e-book-review.jpg"
+            alt="Hello"
+            height="100%"
+            width="100%"
+          />
         </FrontSide>
-        <BackSide style={{ backgroundColor: "#175852" }}>
+        <BackSide style={{ backgroundColor: "#90EE90" }}>
           {/* put the Backside content here */}
           <div class="contents">
-            <ul>
+            <ul style={{ liststyle: "none" }}>
               <li>Author</li>
               <li>Edition</li>
               <li>rating</li>

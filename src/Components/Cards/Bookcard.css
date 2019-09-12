@@ -1,4 +1,4 @@
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   display: none;
 }
 
@@ -39,7 +39,7 @@ input[type="checkbox"] {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem; */
-}
+/* }
 .front {
   grid-area: frontAndBack;
 }
@@ -57,7 +57,7 @@ input[type="checkbox"] {
     url("https://nikonrumors.com/wp-content/uploads/2014/03/Nikon-1-V3-sample-photo.jpg");
 }
 .contents ul {
-  list-style: none;
+ 
 }
 .contents li {
   text-align: center;
@@ -69,4 +69,4 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked + .card-container .card-flip {
   transform: rotateY(180deg);
-}
+} */ 

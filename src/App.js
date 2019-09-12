@@ -6,13 +6,14 @@ import Login1 from "./Components/Login1";
 import Home from "./Components/Home";
 import About from "./Components/About";
 import Userprofile from "./Components/Userprofile";
-
+import Navbar from "./layout/Navbar";
 import Provider from "./Components/context";
 class App extends Component {
   render() {
     return (
       <Provider>
         <Router>
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={Login1} />
             <Route exact path="/Home" component={Home} />

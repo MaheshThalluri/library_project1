@@ -75,22 +75,24 @@ class Login1 extends Component {
     if (e.target.id === "collegeID") signUP.collegeID = e.target.value;
     this.setState({ signUP });
   };
-  signINsubmit = (validUsers, e) => {
+  signINsubmit = (validUsers, currentUser, e) => {
     // e.preventDefault();
-    console.log(validUsers);
+    // console.log(currentUser);
+    //currentUser("chandu");
     const { signIN } = { ...this.state };
     let flag = false;
     validUsers.forEach(element => {
       if (
         element.email === signIN.email &&
         element.password === signIN.password
-      )
+      ) {
         flag = true;
+        currentUser(element.username);
+      }
     });
     if (flag == false) {
       this.signINvalidation = false;
     } else this.state.signINaction = "/Home";
-    console.log("ca", this.state.signINaction);
   };
 
   signUPsubmit = (collegeIDs, e) => {
@@ -128,10 +130,11 @@ class Login1 extends Component {
     return (
       <Consumer>
         {value => {
+          // console.log(value.currentUser);
           return (
             <div class="mt-5">
               {this.state.sign_in ? (
-                <div class="container ">
+                <div class="container1 ">
                   <div className="form-container sign-up-container">
                     <form action="#">
                       <h1>Create Account</h1>
@@ -229,11 +232,15 @@ class Login1 extends Component {
                   </div>
                 </div>
               ) : (
-                <div class="container" id="container">
+                <div class="container1" id="container">
                   <div className="form-container sign-in-container">
                     <form
                       action={this.state.signINaction}
-                      onSubmit={this.signINsubmit.bind(this, value.validUsers)}
+                      onSubmit={this.signINsubmit.bind(
+                        this,
+                        value.validUsers,
+                        value.currentUser
+                      )}
                     >
                       <h1>Sign in</h1>
                       <div className="social-container">
