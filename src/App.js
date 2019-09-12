@@ -6,10 +6,12 @@ import Login1 from "./Components/Login1";
 import Home from "./Components/Home";
 import About from "./Components/About";
 import Userprofile from "./Components/Userprofile";
+
+import Provider from "./Components/context";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Provider>
         <Router>
           <Switch>
             <Route exact path="/" component={Login1} />
@@ -19,7 +21,7 @@ class App extends Component {
             <Route exact path="/departments/cse" component={Cse} />
           </Switch>
         </Router>
-      </div>
+      </Provider>
     );
   }
 }
