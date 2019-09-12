@@ -3,10 +3,10 @@
 }
 
 /* Flip Cards CSS */
-.card-container {
+/* .card-container {
   display: grid;
   perspective: 700px;
-}
+} */
 /* .container{
       width:25rem;
   } */
@@ -22,20 +22,20 @@
           box-shadow: 0 1.5rem 4rem rgba(black);
         } */
 
-.card-flip {
+/* .card-flip {
   display: grid;
   grid-template: 1fr / 1fr;
   grid-template-areas: "frontAndBack";
   transform-style: preserve-3d;
   transition: all 0.7s ease;
-}
+} */
 
-.card-flip div {
+/* .card-flip div {
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
-.card-title {
-  /* padding-top: 1rem;
+.card-title { */
+/* padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem; */
@@ -59,14 +59,7 @@
 .contents ul {
  
 }
-.contents li {
-  text-align: center;
-  font-size: 1.3rem;
-  border-bottom: 1px solid lightblue;
-  padding: 1rem;
-  margin-right: 2.5rem;
-}
 
 input[type="checkbox"]:checked + .card-container .card-flip {
   transform: rotateY(180deg);
-} */ 
+}  */

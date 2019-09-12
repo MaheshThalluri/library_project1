@@ -3,11 +3,14 @@ import Flippy, { FrontSide, BackSide } from "react-flippy";
 import PropTypes from "prop-types";
 class Deptcards extends Component {
   render() {
-    const { books, book } = { ...this.props };
-    let BOOK = books.filter(element => element.bookID === book);
-    const { bookName, Author, Edition, Availability, Rating } = {
-      ...BOOK
+    const { books, bookid } = { ...this.props };
+    // console.log(this.props);
+    let book_array = books.filter(element => element.bookID === bookid);
+
+    const { bookName, Author, edition, availability, rating, url } = {
+      ...book_array[0]
     };
+    // console.log(bookName);
     return (
       <Flippy
         flipOnHover={true} // default false
@@ -23,22 +26,16 @@ class Deptcards extends Component {
             backgroundColor: "pink"
           }}
         >
-          <img
-            src="http://4.bp.blogspot.com/-r8Z9p2zh5Ko/TnMdtnrt0ZI/AAAAAAAABAk/63aKALxaB38/s1600/Revolution-2020-Chetan-Bhagat-e-book-review.jpg"
-            alt="Hello"
-            height="100%"
-            width="100%"
-          />
+          <img src={url} alt="Hello" height="100%" width="100%" />
         </FrontSide>
         <BackSide style={{ backgroundColor: "#90EE90" }}>
           {/* put the Backside content here */}
           <div class="contents">
-            <ul style={{ liststyle: "none" }}>
-              <li>bookName</li>
-              <li>Author</li>
-              <li>Edition</li>
-              <li>rating</li>
-              <li>Availability</li>
+            <ul class="list-unstyled">
+              <li>{bookName}</li>
+              <li>{Author}</li>
+              <li>{rating}</li>
+              <li>Availability:{availability}</li>
               <li>
                 <button type="button" class="btn btn-primary text-center">
                   Click
