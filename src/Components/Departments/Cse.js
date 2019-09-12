@@ -13,7 +13,7 @@ class Cse extends Component {
           return (
             <div className="">
               <div class="pt-5 ">
-                <form class="form-inline ml-auto">
+                <form class="form-inline" style={{ marginLeft: "700px" }}>
                   <input
                     type="text"
                     class="form-control form-control-lg mr-2"
