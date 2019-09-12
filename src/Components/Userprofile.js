@@ -58,7 +58,7 @@ class Userprofile extends Component {
                         <div class="form-group">
                           <label for="Phone">Phone</label>
                           <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             name="Phone"
                             value={Phone}
