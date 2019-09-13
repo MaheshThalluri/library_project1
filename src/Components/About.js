@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../layout/Navbar";
-import Profile from "./Profile";
+import Profilecard from "./Cards/Profilecard";
 import Footer from "./Footer";
 
 class About extends Component {
@@ -46,7 +46,7 @@ class About extends Component {
             <button className="btn btn-danger btn-lg ml-5">Read More</button>
           </div>
         </div>
-        <Profile />
+        <Profilecard />
         <div className="row ml-3 mr-2">
           <div className="col-md-8">
             <h1 className="text-secondary text-center  mt-2">Statistics</h1>

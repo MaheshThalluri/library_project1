@@ -42,7 +42,7 @@ class Cse extends Component {
             <React.Fragment>
               <Navbar />
               <div className="">
-                <div class="pt-5 ">
+                <div class="pt-5" style={{ marginLeft: "500px" }}>
                   <form class="form-inline ml-auto">
                     <input
                       type="text"
@@ -54,7 +54,7 @@ class Cse extends Component {
                       class="btn btn-lg btn-success"
                       onClick={this.onSearch.bind(this, Books)}
                     >
-                      Search
+                      <i className="fas fa-search"></i> Search
                     </button>
                   </form>
                 </div>
@@ -74,7 +74,7 @@ class Cse extends Component {
                     </div>
                   </div>
                 ) : null}
-                <div className="row mt-5">
+                <div className="row mt-5 mb-5">
                   <div class="col-12">
                     <h1 class="ml-5 mb-5 text-center">Recently Added</h1>
                   </div>
@@ -87,6 +87,7 @@ class Cse extends Component {
                       ))}
                     </div>
                   </div>
+
                   <div className="row mt-5">
                     <div class="col-12">
                       <h1 class="ml-5 mb-5 text-center">Most Popular</h1>
