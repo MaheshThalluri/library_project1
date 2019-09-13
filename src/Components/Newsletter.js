@@ -10,21 +10,21 @@ class Newsletter extends Component {
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <h1 class="text-center">First</h1>
+            <h1 class="text-center">Library News</h1>
             <p className="lead text-center text-white">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta,
               consectetur.
             </p>
           </div>
           <div class="carousel-item">
-            <h1 class="text-center">Second</h1>
+            <h1 class="text-center">Library News</h1>
             <p className="lead text-center text-white">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta,
               consectetur.
             </p>
           </div>
           <div class="carousel-item">
-            <h1 class="text-center">Third</h1>
+            <h1 class="text-center">Library News</h1>
             <p className="lead text-center text-white">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta,
               consectetur.

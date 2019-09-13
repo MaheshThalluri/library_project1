@@ -11,7 +11,7 @@ class About extends Component {
         <Navbar />
         <div className="row mt-5 pt-5 ml-3">
           <div className="col-md-4 ">
-            <h1>Missson & Vision</h1>
+            <h1>Mission & Vision</h1>
             <ul className="list-unstyled pt-3">
               <li>
                 <h6>Lorem ipsum dolor sit amet.</h6>

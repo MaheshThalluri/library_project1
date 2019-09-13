@@ -11,7 +11,7 @@ class Profilecard extends Component {
           <div class="row">
             <div class="col">
               <div class="info-header mb-5">
-                <h1 class="text-primary pb-3">Meet The Authors</h1>
+                <h1 class="text-primary pb-3">Meet The Staff</h1>
                 <p class="lead">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
                   repudiandae aut quos molestias ut nobis?
@@ -29,7 +29,7 @@ class Profilecard extends Component {
                     alt=""
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
-                  <h3>Name</h3>
+                  <h3>Ramya</h3>
                   <h5 class="text-muted">Head</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -67,7 +67,7 @@ class Profilecard extends Component {
                     alt=""
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
-                  <h3>John Doe</h3>
+                  <h3>Ganesh</h3>
                   <h5 class="text-muted">Manager</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -105,7 +105,7 @@ class Profilecard extends Component {
                     alt=""
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
-                  <h3>Kevin Swansor</h3>
+                  <h3>Swathi</h3>
                   <h5 class="text-muted">Assistant</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

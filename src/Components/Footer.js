@@ -9,14 +9,12 @@ class Footer extends Component {
             Library
           </div>
           <div class="col">
-            <p className="lead text-white">Copyrights Are &copy; Reserved </p>
+            <p className="lead text-white">Copyrights &copy; Reserved </p>
           </div>
           <div class="col text-white">
-             <i className="fab fa-facebook fa-2x mr-3 text-white"></i>
+            <i className="fab fa-facebook fa-2x mr-3 text-white"></i>
             <i className="fab fa-twitter fa-2x text-white mr-3"></i>
-            <i className="fab fa-linkedin fa-2x text-white "></i> 
-
-            
+            <i className="fab fa-linkedin fa-2x text-white "></i>
           </div>
         </div>
       </div>

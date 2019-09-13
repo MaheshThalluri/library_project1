@@ -34,7 +34,7 @@ class Navbar extends Component {
                 style={{ "border-bottom": "#008ed6 3px solid" }}
               >
                 <a className="navbar-brand ml-5" href="#">
-                  Navbar
+                  Library
                 </a>
                 <button
                   className="navbar-toggler"
