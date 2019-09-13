@@ -22,3 +22,7 @@ code {
   padding: 1rem;
   margin-right: 2.5rem;
 }
+
+.checked {
+  color: orange;
+}

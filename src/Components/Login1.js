@@ -162,13 +162,13 @@ class Login1 extends Component {
                       <h1>Create Account</h1>
                       <div className="social-container">
                         <Link to="/" className="social">
-                          <i className="fab fa-facebook-f text-primary"></i>
+                          <i className="fab fa-facebook-f   text-primary"></i>
                         </Link>
                         <Link to="/" className="social">
-                          <i className="fab fa-google-plus-g text-danger"></i>
+                          <i className="fab fa-google-plus-g   text-danger"></i>
                         </Link>
                         <Link to="/" className="social">
-                          <i className="fab fa-linkedin-in text-primary"></i>
+                          <i className="fab fa-linkedin-in  text-primary"></i>
                         </Link>
                       </div>
                       <span>or use your email for registration</span>

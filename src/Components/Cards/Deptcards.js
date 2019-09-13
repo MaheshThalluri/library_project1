@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 import PropTypes from "prop-types";
-import StarRating from "react-star-rating";
 class Deptcards extends Component {
   render() {
     const { books, bookid } = { ...this.props };
