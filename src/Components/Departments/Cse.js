@@ -19,11 +19,18 @@ class Cse extends Component {
     e.preventDefault();
     let searchIDs = new Set();
     Books.forEach(element => {
-      element.keyword.forEach(elem => {
-        if (elem === this.state.searchBook) {
-          searchIDs.add(element.bookID);
-        }
-      });
+      // element.keyword.forEach(elem => {
+      //   if (elem === this.state.searchBook) {
+      //     searchIDs.add(element.bookID);
+      //   }
+      // }
+      //);
+      if (
+        element.bookName
+          .toLowerCase()
+          .includes(this.state.searchBook.toLowerCase())
+      )
+        searchIDs.add(element.bookID);
     });
     searchIDs = Array.from(searchIDs);
     this.setState({ searchIDs });
@@ -40,7 +47,7 @@ class Cse extends Component {
             <React.Fragment>
               <Navbar />
               <div className="">
-                <div class="pt-5" style={{ marginLeft: "100px" }}>
+                <div class="pt-5" style={{ marginLeft: "500px" }}>
                   <form class="form-inline ml-auto">
                     <input
                       type="text"

@@ -140,12 +140,12 @@ export default class Provider extends Component {
     MostPopular: ["cs002", "cs003", "cs004"],
     User: "UserName",
     currentUser: curr_User => {
-      console.log("chadf", curr_User);
-     const {User}={...this.state}; 
-      console.log(this.state.User);
-      this.setState({ User, curr_User });
-      console.log("htesd");
-      console.log(this.state.User);
+      // console.log("chadf", curr_User);
+
+      this.setState({ User: curr_User });
+      // console.log("htesd");
+      const { User } = this.state;
+      console.log(User);
     }
   };
 

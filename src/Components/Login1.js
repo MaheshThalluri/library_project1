@@ -102,11 +102,14 @@ class Login1 extends Component {
       ) {
         flag = true;
         // console.log(element.username);
-        setTimeout(currentUser(element.username), 10000);
+        currentUser(element.username);
       }
     });
     if (flag == false) {
-      this.signINvalidation = false;
+      {
+        // e.preventDefault();
+        this.signINvalidation = false;
+      }
     } else this.state.signINaction = "/Home";
     this.submitted = true;
   };
@@ -154,16 +157,7 @@ class Login1 extends Component {
                 <div class="container2 ">
                   <div className="form-container sign-up-container">
                     <form
-                      style={{
-                        backgroundColor: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "column",
-                        padding: "0 50px",
-                        height: "100%",
-                        textAlign: "center"
-                      }}
+                      className="form1"
                       action={this.state.signUPaction}
                       onSubmit={this.signUPsubmit.bind(this, value.collegeIDs)}
                     >
@@ -180,12 +174,6 @@ class Login1 extends Component {
                         </Link>
                       </div>
                       <span>or use your email for registration</span>
-
-                      {/* <div
-                        className={
-                          this.state.validation.email.isInvalid && "is-invalid"
-                        }
-                      > */}
                       <input
                         type="email"
                         name="email"
@@ -196,12 +184,7 @@ class Login1 extends Component {
                       <span className="help-block">
                         {this.state.validation.email.message}
                       </span>
-                      {/* </div> */}
-                      {/* <div
-                        className={
-                          this.state.validation.number.isInvalid && "is-invalid"
-                        }
-                      > */}
+
                       <input
                         type="number"
                         name="number"
@@ -212,13 +195,7 @@ class Login1 extends Component {
                       <span className="help-block">
                         {this.state.validation.number.message}
                       </span>
-                      {/* </div> */}
-                      {/* <div
-                        className={
-                          this.state.validation.password.isInvalid &&
-                          "is-invalid"
-                        }
-                      > */}
+
                       <input
                         type="text"
                         name="collegeID"
@@ -229,13 +206,7 @@ class Login1 extends Component {
                       <span className="help-block">
                         {this.state.validation.collegeID.message}
                       </span>
-                      {/* </div> */}
-                      {/* <div
-                        className={
-                          this.state.validation.collegeID.isInvalid &&
-                          "is-invalid"
-                        }
-                      > */}
+
                       <input
                         type="password"
                         placeholder="Password"
@@ -249,7 +220,7 @@ class Login1 extends Component {
                       <span className="help-block">
                         {this.state.validation.password.message}
                       </span>
-                      {/* </div> */}
+
                       <button>Sign Up</button>
                     </form>
                   </div>
@@ -277,16 +248,7 @@ class Login1 extends Component {
                 <div class="container2" id="container">
                   <div className="form-container sign-in-container">
                     <form
-                      // style={{
-                      //   backgroundColor: "#ffffff",
-                      //   display: "flex",
-                      //   alignItems: "center",
-                      //   justifyContent: "center",
-                      //   flexDirection: "column",
-                      //   padding: "0 50px",
-                      //   height: "100%",
-                      //   textAlign: "center"
-                      // }}
+                      className="form1"
                       action={this.state.signINaction}
                       onSubmit={this.signINsubmit.bind(
                         this,
@@ -309,7 +271,9 @@ class Login1 extends Component {
                       <span>or use your account</span>
 
                       {!this.signINvalidation ? (
-                        <p className={"bg-danger"}>Invalid email or password</p>
+                        <div class="alert alert-danger" role="alert">
+                          Invalid email or password
+                        </div>
                       ) : null}
                       <input
                         type="text"

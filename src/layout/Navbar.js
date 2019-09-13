@@ -3,12 +3,30 @@ import PropTypes from "prop-types";
 import { Consumer } from "../Components/context";
 import React, { Component } from "react";
 class Navbar extends Component {
+  state = {
+    Home: "nav-item ",
+    About: "nav-item",
+    Departments: "nav-item",
+    User: "nav-item"
+  };
+  listener = e => {
+    // e.preventDefault();
+    this.setState({ Home: "nav-item" });
+    this.setState({ About: "nav-item" });
+    this.setState({ Departments: "nav-item" });
+    this.setState({ User: "nav-item" });
+    // console.log(e.target.id);
+    // console.log("chandu");
+    if (e.target.id === "Home") this.setState({ Home: "nav-item active" });
+    if (e.target.id === "About") this.setState({ About: "nav-item active" });
+    // console.log(this.state);
+  };
   render() {
     return (
       <Consumer>
         {value => {
           const { User } = { ...value };
-          console.log("hi", User);
+          // console.log("hi", User);
           return (
             <React.Fragment>
               <nav
@@ -35,13 +53,23 @@ class Navbar extends Component {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav ml-auto text-success">
-                    <li className="nav-item active">
-                      <a className="nav-link" href="/Home">
+                    <li className={this.state.Home}>
+                      <a
+                        className="nav-link"
+                        href="/Home"
+                        id="Home"
+                        onClick={this.listener}
+                      >
                         Home <span className="sr-only">(current)</span>
                       </a>
                     </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="/about">
+                    <li className={this.state.About}>
+                      <a
+                        className="nav-link"
+                        href="/about"
+                        id="About"
+                        onClick={this.listener}
+                      >
                         About
                       </a>
                     </li>
@@ -54,6 +82,8 @@ class Navbar extends Component {
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
+                        id="Departments"
+                        // onClick={this.listener}
                       >
                         Departments
                       </a>
@@ -84,6 +114,8 @@ class Navbar extends Component {
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
+                        id="user"
+                        // onClick={this.listener}
                       >
                         <i className="fa fa-user"></i>
                         {User}

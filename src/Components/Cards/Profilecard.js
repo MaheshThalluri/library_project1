@@ -29,8 +29,8 @@ class Profilecard extends Component {
                     alt=""
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
-                  <h3>Grace Smith</h3>
-                  <h5 class="text-muted">Co-Writer</h5>
+                  <h3>Name</h3>
+                  <h5 class="text-muted">Head</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Pariatur neque veniam corrupti recusandae consequuntur
@@ -68,7 +68,7 @@ class Profilecard extends Component {
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
                   <h3>John Doe</h3>
-                  <h5 class="text-muted">Editor</h5>
+                  <h5 class="text-muted">Manager</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Pariatur neque veniam corrupti recusandae consequuntur
@@ -106,7 +106,7 @@ class Profilecard extends Component {
                     class="img-fluid rounded-circle w-50 mb-3"
                   />
                   <h3>Kevin Swansor</h3>
-                  <h5 class="text-muted">Designer</h5>
+                  <h5 class="text-muted">Assistant</h5>
                   <p class="lead">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Pariatur neque veniam corrupti recusandae consequuntur

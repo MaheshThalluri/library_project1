@@ -17,11 +17,14 @@ code {
 
 .contents li {
   text-align: center;
-  font-size: 1.3rem;
-  border-bottom: 1px solid lightblue;
-  padding: 1rem;
-  margin-right: 2.5rem;
+  font-size: 1.1rem;
+  /* border-bottom: 1px solid lightblue; */
+  padding: 0.75rem;
+  /* margin-right: 2.5rem; */
 }
+/* li :last-child {
+  border-bottom: none;
+} */
 
 .checked {
   color: orange;
