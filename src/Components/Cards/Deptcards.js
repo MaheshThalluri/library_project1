@@ -5,14 +5,10 @@ import StarRating from "react-star-rating";
 class Deptcards extends Component {
   render() {
     const { books, bookid } = { ...this.props };
-    // console.log(this.props);
     let book_array = books.filter(element => element.bookID === bookid);
-
     const { bookName, Author, edition, availability, rating, url } = {
       ...book_array[0]
     };
-
-    // console.log(bookName);
     let c = "fa fa-star checked";
     let stars = [
       "fa fa-star",

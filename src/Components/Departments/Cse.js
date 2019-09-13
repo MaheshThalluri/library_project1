@@ -13,7 +13,6 @@ class Cse extends Component {
   inputListener = e => {
     e.preventDefault();
     this.setState({ searchBook: e.target.value });
-    // console.log(this.state.searchBook);
   };
   onSearch = (Books, e) => {
     this.setState({ searchPress: true });
@@ -30,7 +29,6 @@ class Cse extends Component {
     this.setState({ searchIDs });
     if (searchIDs.length == 0) this.setState({ text: "No Results Found" });
     else this.setState({ text: "Search Results" });
-    //console.log(searchIDs);
   };
   render() {
     return (
@@ -42,7 +40,7 @@ class Cse extends Component {
             <React.Fragment>
               <Navbar />
               <div className="">
-                <div class="pt-5" style={{ marginLeft: "500px" }}>
+                <div class="pt-5" style={{ marginLeft: "100px" }}>
                   <form class="form-inline ml-auto">
                     <input
                       type="text"

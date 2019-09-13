@@ -92,7 +92,7 @@ class Login1 extends Component {
     this.setState({ signUP });
   };
   signINsubmit = (validUsers, currentUser, e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const { signIN } = { ...this.state };
     let flag = false;
     validUsers.forEach(element => {
@@ -112,8 +112,6 @@ class Login1 extends Component {
   };
 
   signUPsubmit = (collegeIDs, e) => {
-    // e.preventDefault();
-
     const { signUP } = { ...this.state };
 
     let validation = this.validator.validate(signUP);
@@ -132,8 +130,10 @@ class Login1 extends Component {
     }
     if (flag && validation.isValid) {
       this.state.signUPaction = "/Home";
-    } else this.state.signUPaction = "#";
-    // console.log(this.state.signUPaction);
+    } else {
+      e.preventDefault();
+      this.state.signUPaction = "#";
+    }
     this.setState({ validation: validation });
     this.submitted = true;
   };
@@ -141,8 +141,6 @@ class Login1 extends Component {
     this.setState({ sign_in: !this.state.sign_in });
   };
   render() {
-    // console.log(this.state.signUPaction);
-    // console.log(this.state.sign_in);
     const { signUP } = { ...this.state };
     let validation = this.submitted
       ? this.validator.validate(signUP)
@@ -173,75 +171,75 @@ class Login1 extends Component {
                       </div>
                       <span>or use your email for registration</span>
 
-                      <div
+                      {/* <div
                         className={
                           this.state.validation.email.isInvalid && "is-invalid"
                         }
-                      >
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="john@doe.com"
-                          onChange={this.signUPinputListener}
-                          id="email"
-                        />
-                        <span className="help-block">
-                          {this.state.validation.email.message}
-                        </span>
-                      </div>
-                      <div
+                      > */}
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="john@doe.com"
+                        onChange={this.signUPinputListener}
+                        id="email"
+                      />
+                      <span className="help-block">
+                        {this.state.validation.email.message}
+                      </span>
+                      {/* </div> */}
+                      {/* <div
                         className={
                           this.state.validation.number.isInvalid && "is-invalid"
                         }
-                      >
-                        <input
-                          type="number"
-                          name="number"
-                          placeholder="9876543210"
-                          onChange={this.signUPinputListener}
-                          id="number"
-                        />
-                        <span className="help-block">
-                          {this.state.validation.number.message}
-                        </span>
-                      </div>
-                      <div
+                      > */}
+                      <input
+                        type="number"
+                        name="number"
+                        placeholder="9876543210"
+                        onChange={this.signUPinputListener}
+                        id="number"
+                      />
+                      <span className="help-block">
+                        {this.state.validation.number.message}
+                      </span>
+                      {/* </div> */}
+                      {/* <div
                         className={
                           this.state.validation.password.isInvalid &&
                           "is-invalid"
                         }
-                      >
-                        <input
-                          type="text"
-                          name="collegeID"
-                          placeholder="y7cs001"
-                          onChange={this.signUPinputListener}
-                          id="collegeID"
-                        />
-                        <span className="help-block">
-                          {this.state.validation.collegeID.message}
-                        </span>
-                      </div>
-                      <div
+                      > */}
+                      <input
+                        type="text"
+                        name="collegeID"
+                        placeholder="y7cs001"
+                        onChange={this.signUPinputListener}
+                        id="collegeID"
+                      />
+                      <span className="help-block">
+                        {this.state.validation.collegeID.message}
+                      </span>
+                      {/* </div> */}
+                      {/* <div
                         className={
                           this.state.validation.collegeID.isInvalid &&
                           "is-invalid"
                         }
-                      >
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          onChange={this.signUPinputListener}
-                          id="password"
-                          className={
-                            this.state.validation.password.isInvalid &&
-                            "is-invalid"
-                          }
-                        />
-                        <span className="help-block">
-                          {this.state.validation.password.message}
-                        </span>
-                      </div>
+                      > */}
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        onChange={this.signUPinputListener}
+                        id="password"
+                        className={
+                          this.state.validation.password.isInvalid &&
+                          "is-invalid"
+                        }
+                      />
+                      <span className="help-block">
+                        {this.state.validation.password.message}
+                      </span>
+                      {/* </div> */}
                       <button>Sign Up</button>
                     </form>
                   </div>

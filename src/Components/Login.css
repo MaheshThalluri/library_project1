@@ -91,9 +91,10 @@ form {
 input {
   background-color: #eee;
   border: none;
-  padding: 12px 15px;
+  padding: 12px 20px;
+  /* padding-top: 3rem; */
   margin: 8px 0;
-  width: 100%;
+  width: 60%;
 }
 
 .container1 {
