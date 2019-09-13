@@ -8,7 +8,7 @@ class Navbar extends Component {
       <Consumer>
         {value => {
           const { User } = { ...value };
-
+          console.log("hi", User);
           return (
             <React.Fragment>
               <nav
@@ -95,7 +95,7 @@ class Navbar extends Component {
                         <a className="dropdown-item" href="/userprofile">
                           <i class="fas fa-user-circle"></i> Profile
                         </a>
-                        <a className="dropdown-item" href="Logout">
+                        <a className="dropdown-item" href="/">
                           <i class="fas fa-user-times"> Log out</i>
                         </a>
                       </div>
@@ -107,19 +107,8 @@ class Navbar extends Component {
           );
         }}
       </Consumer>
-      //       <h1>chand</h1>
-
-      // <h1>chad</h1>
     );
   }
 }
-
-// const Navbar = props => {
-//   console.log("chandu");
-
-//   return (
-
-//   );
-// };
 
 export default Navbar;

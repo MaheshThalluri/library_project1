@@ -13,7 +13,7 @@ class Cse extends Component {
   inputListener = e => {
     e.preventDefault();
     this.setState({ searchBook: e.target.value });
-    console.log(this.state.searchBook);
+    // console.log(this.state.searchBook);
   };
   onSearch = (Books, e) => {
     this.setState({ searchPress: true });

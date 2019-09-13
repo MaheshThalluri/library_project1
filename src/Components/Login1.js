@@ -20,6 +20,19 @@ class Login1 extends Component {
         validWhen: true,
         message: "That is not a valid email."
       },
+      {
+        field: "number",
+        method: "isEmpty",
+        validWhen: false,
+        message: "Pleave provide a phone number."
+      },
+      {
+        field: "number",
+        method: "matches",
+        args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/], // args is an optional array of arguements that will be passed to the validation method
+        validWhen: true,
+        message: "That is not a valid phone number."
+      },
 
       {
         field: "password",
@@ -51,12 +64,14 @@ class Login1 extends Component {
       signUP: {
         email: "",
         password: "",
-        collegeID: ""
+        collegeID: "",
+        number: ""
       },
       leftPanel: false,
       rightPanel: true,
       validation: this.validator.valid(),
-      signINaction: "#"
+      signINaction: "#",
+      signUPaction: "#"
     };
   }
 
@@ -73,12 +88,11 @@ class Login1 extends Component {
     if (e.target.id === "email") signUP.email = e.target.value;
     if (e.target.id === "password") signUP.password = e.target.value;
     if (e.target.id === "collegeID") signUP.collegeID = e.target.value;
+    if (e.target.id === "number") signUP.number = e.target.value;
     this.setState({ signUP });
   };
   signINsubmit = (validUsers, currentUser, e) => {
-    // e.preventDefault();
-    // console.log(currentUser);
-    //currentUser("chandu");
+    e.preventDefault();
     const { signIN } = { ...this.state };
     let flag = false;
     validUsers.forEach(element => {
@@ -87,21 +101,22 @@ class Login1 extends Component {
         element.password === signIN.password
       ) {
         flag = true;
-        currentUser(element.username);
+        // console.log(element.username);
+        setTimeout(currentUser(element.username), 10000);
       }
     });
     if (flag == false) {
       this.signINvalidation = false;
     } else this.state.signINaction = "/Home";
+    this.submitted = true;
   };
 
   signUPsubmit = (collegeIDs, e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const { signUP } = { ...this.state };
 
     let validation = this.validator.validate(signUP);
-
     let flag = false;
     if (signUP.collegeID != "") {
       collegeIDs.forEach(element => {
@@ -115,6 +130,10 @@ class Login1 extends Component {
         validation.collegeID.message = "not a valid college id";
       }
     }
+    if (flag && validation.isValid) {
+      this.state.signUPaction = "/Home";
+    } else this.state.signUPaction = "#";
+    // console.log(this.state.signUPaction);
     this.setState({ validation: validation });
     this.submitted = true;
   };
@@ -122,7 +141,8 @@ class Login1 extends Component {
     this.setState({ sign_in: !this.state.sign_in });
   };
   render() {
-    console.log(this.state.signINaction);
+    // console.log(this.state.signUPaction);
+    // console.log(this.state.sign_in);
     const { signUP } = { ...this.state };
     let validation = this.submitted
       ? this.validator.validate(signUP)
@@ -130,13 +150,15 @@ class Login1 extends Component {
     return (
       <Consumer>
         {value => {
-          // console.log(value.currentUser);
           return (
             <div class="mt-5">
               {this.state.sign_in ? (
-                <div class="container1 ">
+                <div class="container2 ">
                   <div className="form-container sign-up-container">
-                    <form action="#">
+                    <form
+                      action={this.state.signUPaction}
+                      onSubmit={this.signUPsubmit.bind(this, value.collegeIDs)}
+                    >
                       <h1>Create Account</h1>
                       <div className="social-container">
                         <Link to="/" className="social">
@@ -165,6 +187,22 @@ class Login1 extends Component {
                         />
                         <span className="help-block">
                           {this.state.validation.email.message}
+                        </span>
+                      </div>
+                      <div
+                        className={
+                          this.state.validation.number.isInvalid && "is-invalid"
+                        }
+                      >
+                        <input
+                          type="number"
+                          name="number"
+                          placeholder="9876543210"
+                          onChange={this.signUPinputListener}
+                          id="number"
+                        />
+                        <span className="help-block">
+                          {this.state.validation.number.message}
                         </span>
                       </div>
                       <div
@@ -204,11 +242,7 @@ class Login1 extends Component {
                           {this.state.validation.password.message}
                         </span>
                       </div>
-                      <button
-                        onClick={this.signUPsubmit.bind(this, value.collegeIDs)}
-                      >
-                        Sign Up
-                      </button>
+                      <button>Sign Up</button>
                     </form>
                   </div>
 
@@ -232,7 +266,7 @@ class Login1 extends Component {
                   </div>
                 </div>
               ) : (
-                <div class="container1" id="container">
+                <div class="container2" id="container">
                   <div className="form-container sign-in-container">
                     <form
                       action={this.state.signINaction}
