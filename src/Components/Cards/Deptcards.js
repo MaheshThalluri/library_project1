@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Consumer } from "../../Components/context";
 class Deptcards extends Component {
   lending_books = (e, book_details, user_id) => {
-    e.preventDefault();
     if (book_details.availability == "yes") console.log("you can get the book");
     else console.log("you will get updated with the details of book soon");
   };

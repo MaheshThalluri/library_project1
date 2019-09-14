@@ -19,18 +19,17 @@ class Cse extends Component {
     e.preventDefault();
     let searchIDs = new Set();
     Books.forEach(element => {
-      // element.keyword.forEach(elem => {
-      //   if (elem === this.state.searchBook) {
-      //     searchIDs.add(element.bookID);
-      //   }
-      // }
-      //);
-      if (
-        element.bookName
-          .toLowerCase()
-          .includes(this.state.searchBook.toLowerCase())
-      )
-        searchIDs.add(element.bookID);
+      element.keyword.forEach(elem => {
+        if (elem === this.state.searchBook) {
+          searchIDs.add(element.bookID);
+        }
+      });
+      // if (
+      //   element.bookName
+      //     .toLowerCase()
+      //     .includes(this.state.searchBook.toLowerCase())
+      // )
+      searchIDs.add(element.bookID);
     });
     searchIDs = Array.from(searchIDs);
     this.setState({ searchIDs });
